@@ -1,0 +1,5 @@
+/db/kafka_connect_ui_development
+/db/kafka_connect_ui_test
+/public/assets*
+/tmp
+/vendor/bundle
