@@ -6,7 +6,12 @@
   </head>
   <body>
     <h1>Kafka Connect</h1>
-
     <%= yield %>
+
+    <hr>
+
+    <%= link_to "Plugins", routes.plugins_path %>
+    |
+    <%= link_to "Connectors", routes.connectors_path %>
   </body>
 </html>

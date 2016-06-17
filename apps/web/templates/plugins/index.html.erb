@@ -1,0 +1,18 @@
+<% if plugins.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Class</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% plugins.each do |plugin| %>
+      <tr>
+        <td><%= plugin["class"] %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+No plugins.
+<% end %>

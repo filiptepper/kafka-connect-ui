@@ -2,7 +2,11 @@ module API
   class KafkaConnect
     class << self
       def connectors
-        get("/connectors")
+        get("/connectors/")
+      end
+
+      def plugins
+        get("/connector-plugins/")
       end
 
 
