@@ -1,9 +1,11 @@
 <% if connectors.any? %>
-  <%= connectors %>
+  <% connectors.each do |connector| %>
+    <%= link_to connector, routes.connector_path(connector) %>
+  <% end %>
 <% else %>
 No connectors.
 <% end %>
 
 <hr>
 
-<a href="">Add connector</a>
+<%= link_to "New connector", routes.new_connector_path %>

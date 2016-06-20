@@ -1,0 +1,24 @@
+<h2><%= connector["name"] %></h2>
+
+<h3>Config</h3>
+
+<pre><% connector["config"].each do |key, value| %>
+<%= key %>=<%= value %>
+<% end %></pre>
+
+<h3>Tasks</h3>
+
+<table>
+  <tbody>
+    <% connector["tasks"].each do |task| %>
+      <tr>
+        <td><%= task["connector"] %></td>
+        <td><%= task["task"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<%= link_to "New connector", routes.new_connector_path %>

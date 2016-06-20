@@ -1,0 +1,15 @@
+<%=
+  form_for :connector, routes.connectors_path do
+    p do
+      label :name
+      text_field :name
+    end
+
+    p do
+      label :config
+      text_area :config, rows: 20, cols: 120
+    end
+
+    submit 'Create'
+  end
+%>
