@@ -13,6 +13,10 @@ module API
         post("/connectors/", params)
       end
 
+      def delete_connector(name)
+        delete("/connectors/#{name}")
+      end
+
       def plugins
         get("/connector-plugins/")
       end
@@ -37,6 +41,14 @@ module API
             accept: :json,
             content_type: :json
           )
+        )
+      end
+
+      def delete(path)
+        RestClient.delete(
+          url(path),
+          accept: :json,
+          content_type: :json
         )
       end
 

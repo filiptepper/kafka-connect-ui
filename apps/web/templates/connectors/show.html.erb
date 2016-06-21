@@ -21,4 +21,10 @@
 
 <hr>
 
-<%= link_to "New connector", routes.new_connector_path %>
+<%= link_to "New connector", routes.new_connector_path %> |
+<%=
+  form_for :connector, routes.connector_path(connector["name"]), method: :delete do
+    submit "Delete"
+  end
+%>
+
