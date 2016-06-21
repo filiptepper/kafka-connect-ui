@@ -9,6 +9,22 @@ module API
         get("/connectors/#{name}")
       end
 
+      def connector_status(name)
+        get("/connectors/#{name}/status")
+      end
+
+      def pause_connector(name)
+        put("/connectors/#{name}/pause")
+      end
+
+      def restart_connector(name)
+        post("/connectors/#{name}/restart")
+      end
+
+      def resume_connector(name)
+        put("/connectors/#{name}/resume")
+      end
+
       def create_connector(params)
         post("/connectors/", params)
       end
@@ -33,14 +49,25 @@ module API
         )
       end
 
-      def post(path, params)
-        JSON.parse(
-          RestClient.post(
+      def post(path, params = {})
+        response = RestClient.post(
             url(path),
             params.to_json,
             accept: :json,
             content_type: :json
           )
+
+        unless response.empty?
+          JSON.parse(response)
+        end
+      end
+
+      def put(path, params = {})
+        RestClient.put(
+          url(path),
+          params.to_json,
+          accept: :json,
+          content_type: :json
         )
       end
 
